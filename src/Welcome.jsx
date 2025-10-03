@@ -5,6 +5,7 @@ import style from "./Home.module.css";
 import { ThemeContext } from "./ThemeContext";
 import axios from "axios";
 
+
 function Welcome() {
   const [joke, setJoke] = useState("");
   const darkmode = useContext(ThemeContext);
@@ -25,8 +26,10 @@ function Welcome() {
 
   return (
     <div className={darkmode === "dark" ? style.dark : style.light}>
-      <h1 className={style.wel}>Welcome to the page..</h1>
-      <p>{joke}</p>
+      <div className={style.homePage}>
+        <h1 className={style.wel}>Welcome to the page..</h1>
+        <p>{joke}</p>
+      </div>
     </div>
   );
 }
