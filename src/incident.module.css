@@ -1,0 +1,24 @@
+.incident{
+    margin: 20px; 
+    background-color: cadetblue;
+    width: 300px;
+    text-align: center;
+    justify-content: space-around;
+    padding: 10px;
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+   
+
+}
+.card{
+    flex-wrap: wrap;
+    display: flex;
+    margin-top: 20px;
+}
+.form-container {
+    margin-top: 0px; 
+    padding: 30px; 
+    background-color: #f4f4f4; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
