@@ -29,11 +29,13 @@ function IncidentList({ incidents, onDelete, addIncident }) {
   return (
     <>
       <div className={`${style["form-container"]} ${darkmode === "dark" ? style.dark : ""}`}>
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={handleFormSubmit} >
+          <label>Id</label>  
           <input type="text" name="incident_id" placeholder="INC-111111" value={formData.incident_id} onChange={handleInputChange} />
+          <label>Title</label>    
           <input type="text" name="title" placeholder="Incident Title" value={formData.title} onChange={handleInputChange} />
           <label>Priority</label>
-          <select name="priority" value={formData.priority} onChange={handleInputChange}>
+          <select name="priority" value={formData.priority} onChange={handleInputChange} >
             <option value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>
@@ -48,10 +50,10 @@ function IncidentList({ incidents, onDelete, addIncident }) {
           </select>
           <label>Severity</label>
           <select name="severity" value={formData.severity} onChange={handleInputChange}>
-            <option value="3 - Low">Low</option>
-            <option value="1 - Critical">Medium</option>
-            <option value="high">High</option>
-            <option value="critical">Critical</option>
+            <option value="3 - Low">3 - Low</option>
+            <option value="1 - Critical">1 - Critical</option>
+            <option value="high">2-high</option>
+            <option value="critical">2-critical</option>
           </select>
           <button type="submit">Add Incident</button>
         </form>

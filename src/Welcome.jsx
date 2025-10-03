@@ -3,6 +3,7 @@
 import { useState, useEffect, useContext } from "react";
 import style from "./Home.module.css";
 import { ThemeContext } from "./ThemeContext";
+import axios from "axios";
 
 function Welcome() {
   const [joke, setJoke] = useState("");
@@ -13,9 +14,9 @@ function Welcome() {
     const signal = controller.signal;
 
     async function fetchData() {
-      let res = await fetch("https://api.chucknorris.io/jokes/random", { signal });
-      let data = await res.json();
-      setJoke(data.value);
+      let res = await axios.get("https://api.chucknorris.io/jokes/random", { signal });
+     
+      setJoke(res.data.value);
     }
 
     fetchData();

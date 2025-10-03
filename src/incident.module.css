@@ -21,4 +21,26 @@
     background-color: #f4f4f4; 
     border-radius: 5px; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    justify-content: space-between;
+
+
+} 
+.form-container label{
+    color: black;
+    margin-left: 20px;
+}
+.form-container button{
+    margin-left: 20px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.form-container select {
+    padding: 5px;
+    margin-left: 5px;
+    border-radius: 5px;
+}   
+.form-container input{
+    padding: 5px;
+    margin-left: 5px;
+    border-radius: 5px;
 }

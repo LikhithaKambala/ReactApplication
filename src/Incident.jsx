@@ -1,4 +1,5 @@
 import style from "./incident.module.css";
+import {Button} from "@mui/material"
 
 function Incident({ incident, handleClick }) {  
   const { incident_id, title, status, priority } = incident;
@@ -9,8 +10,8 @@ function Incident({ incident, handleClick }) {
       <p>Title: {title}</p>
       <p>Status: {status}</p>
       <p>Priority: {priority}</p>
-      <h1>heloooo</h1>
-      <button type="button" onClick={handleClick}>delete</button>
+      
+      <Button  sx={{ my: "50px" }} variant="contained" color="error" type="button" onClick={handleClick}>delete</Button>
     </div>
   );
 }

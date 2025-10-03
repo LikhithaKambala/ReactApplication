@@ -5,15 +5,17 @@ import IncidentList from "./IncidentList";
 import Welcome from "./Welcome.jsx";
 import data from "./incidents.json";
 import { ThemeContext } from "./ThemeContext";
+import {Link, Route, Routes} from "react-router-dom";
 
 function Home({ toggleDarkmode }) {
   const darkmode = useContext(ThemeContext);
   const date = new Date();
   let user = { prefix: "Kambala", lastName: "Likhitha" };
 
-  const [pageContent, setPageContent] = useState("Home");
+  
   const [incidents, dispatch] = useReducer(incidentsReducer, data);
 
+  
   function incidentsReducer(incidents, action) {  
     switch(action.type) {
       case "ADD":
@@ -28,7 +30,7 @@ function Home({ toggleDarkmode }) {
   const handleDelete = id => dispatch({ type: "DELETE", payload: id });
   const addIncident = newIncident => dispatch({ type: "ADD", payload: newIncident });
 
-  const handleClick = e => setPageContent(e.target.innerText);
+ 
 
   return (
     <div className={darkmode === "dark" ? style.dark : style.light}>
@@ -39,23 +41,22 @@ function Home({ toggleDarkmode }) {
         </div>
         <nav className={style.navbar}>
           <ul className={style.navLinks}>
-            <li><button className={style.navButton} onClick={handleClick}>Home</button></li>
-            <li><button className={style.navButton} onClick={handleClick}>Accident</button></li>
+            <li><Link  to="/" className={style.navButton} >Home</Link></li>
+            <li><Link to="/incidents"  className={style.navButton} >Accident</Link></li>
           </ul>
           <button onClick={toggleDarkmode} className={style.navButton}>DarkMode</button>
         </nav>
       </header>
-
-      <main>
-        {pageContent === "Home" && <Welcome />}
-        {pageContent === "Accident" && 
-          <IncidentList 
-            incidents={incidents} 
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/incidents" element={
+          <IncidentList incidents={incidents} 
             onDelete={handleDelete} 
             addIncident={addIncident} 
           />
-        }
-      </main>
+        } />
+      </Routes>
+      
     </div>
   );
 }
